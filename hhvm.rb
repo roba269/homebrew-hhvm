@@ -90,6 +90,7 @@ class Hhvm < Formula
 
   def install
     ENV.cxx11
+    ENV.j1
     args = [
       "-DBOOST_INCLUDEDIR=#{Formula["boost"].opt_include}",
       "-DBOOST_LIBRARYDIR=#{Formula["boost"].opt_lib}",
