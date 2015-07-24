@@ -90,7 +90,6 @@ class Hhvm < Formula
 
   def install
     ENV.cxx11
-    ENV.j1
     args = [
       "-DBOOST_INCLUDEDIR=#{Formula["boost"].opt_include}",
       "-DBOOST_LIBRARYDIR=#{Formula["boost"].opt_lib}",
@@ -156,6 +155,7 @@ class Hhvm < Formula
     ENV["CC"] = "#{Formula["llvm"].opt_bin}/clang"
     ENV["LD"] = "#{Formula["llvm"].opt_prefix}/bin/lld"
     ENV["CXX"] = "#{Formula["llvm"].opt_bin}/clang++"
+    ENV["MAKEFLAGS"] = "-j1"
     args << "-DCMAKE_C_COMPILER=#{Formula["llvm"].opt_bin}/clang"
     args << "-DCMAKE_CXX_COMPILER=#{Formula["llvm"].opt_bin}/clang++"
     args << "-DCMAKE_ASM_COMPILER=#{Formula["llvm"].opt_bin}/clang"
